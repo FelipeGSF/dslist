@@ -9,26 +9,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "tb_game")
+@Entity //mostro que essa classe é uma entidade do banco de dados.
+@Table(name = "tb_game")//quero que minha tabela do banco de dados seja criada com esse nome
 public class Game {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id //estou dizendo que o atributo id é um identificador no banco
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // e que esse identificador é gerado automaticamente ou autoincrementado.
 	private Long id;
 	private String title;
 
-	@Column(name = "game_year")
+	@Column(name = "game_year") //a palavra year é uma palavra reservada do banco de dados sql por isso teve que ter essa assinatura para alterar esse campo da tabela
 	private Integer year;
 	private String genre;
 	private String platforms;
 	private Double score;
 	private String imgUrl;
 	
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT")// JPA precisa dessa descrição para gerar um campo como texto pois se deixasse como estava iria deixar um campo tipo um VARCHAR(255)
 	private String shortDescription;
 	
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "TEXT")// JPA precisa dessa descrição para gerar um campo como texto pois se deixasse como estava iria deixar um campo tipo um VARCHAR(255)
 	private String longDescription;
 
 	public Game() {
